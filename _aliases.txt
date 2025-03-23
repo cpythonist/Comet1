@@ -1,0 +1,7 @@
+cat=disp
+copy=cp
+move=mv
+rm=del
+cls=clear
+version=ver
+man=help
