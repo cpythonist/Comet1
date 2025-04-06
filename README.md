@@ -1,5 +1,7 @@
 # The Comet 1 Interpreter
-Incomplete source code of the Comet 1 interpreter.<br>Some aspects of the interpreter are yet to be completed, and some help strings require some work. But these are only minor changes, and the interpreter is stable enough to be used as such.
+Incomplete source code of the Comet 1 interpreter.<br>
+Some aspects of the interpreter are yet to be completed, and some help strings require some work. But these are only minor changes, and the interpreter is stable enough to be used as such.<br>
+Currently, it is available for Windows, and cannot be used with Linux due to it being extremely tailored for Windows. Linux source code will be released at a later point in time.
 
 ## Changes
 The Comet interpreter has various changes over the last interpreter, Second 5, such as (and not included to):
@@ -13,6 +15,12 @@ The Comet interpreter has various changes over the last interpreter, Second 5, s
    `;` can be used to separate multiple commands.
  - Extensible design<br>
    External commands can be modified or new external commands can be added.
+
+## Running
+Run as:
+```
+<python> -OO -B <path-to-main.py>
+```
 
 ## Building
 For now, building is not possible. Modules compiled with Nuitka does not seem to have a module export function (PyInit_func), which results in being unable to access external commands (built-in commands work just fine).<br>
