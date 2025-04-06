@@ -20,7 +20,7 @@ For now, building is not possible. Modules compiled with Nuitka does not seem to
 I don't know how to fix this, so if you have any suggestions, please do contact me.
 
 ## Bug reporting
-Please use the [Issues page](http://github.com/cpythonist/Comet1/Issues) to report an bugs or typos encountered in the interpreter.
+Please use the [Issues page](http://github.com/cpythonist/Comet1/issues) to report an bugs or typos encountered in the interpreter.
 
 ## Contribution
 To contribute, please mail your patches to my email ID.
