@@ -1,2 +1,26 @@
-# Comet1
-Source code of the Comet 1 interpreter.
+# The Comet 1 Interpreter
+Incomplete source code of the Comet 1 interpreter.<br>Some aspects of the interpreter are yet to be completed, and some help strings require some work. But these are only minor changes, and the interpreter is stable enough to be used as such.
+
+## Changes
+The Comet interpreter has various changes over the last interpreter, Second 5, such as (and not included to):
+ - Piping<br>
+   The `|` oeprator.
+ - Redirection<br>
+   The `>` operator.
+ - Logical operator support<br>
+   The `&` (logical AND) and `^` (logical OR) operators.
+ - Command separation<br>
+   `;` can be used to separate multiple commands.
+ - Extensible design<br>
+   External commands can be modified or new external commands can be added.
+
+## Building
+For now, building is not possible. Modules compiled with Nuitka does not seem to have a module export function (PyInit_func), which results in being unable to access external commands (built-in commands work just fine).<br>
+<br>
+I don't know how to fix this, so if you have any suggestions, please do contact me.
+
+## Bug reporting
+Please use the [Issues page](http://github.com/cpythonist/Comet1/Issues) to report an bugs or typos encountered in the interpreter.
+
+## Contribution
+To contribute, please mail your patches to my email ID.
