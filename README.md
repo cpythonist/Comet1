@@ -4,7 +4,7 @@ Incomplete source code of the Comet 1 interpreter.<br>Some aspects of the interp
 ## Changes
 The Comet interpreter has various changes over the last interpreter, Second 5, such as (and not included to):
  - Piping<br>
-   The `|` oeprator.
+   The `|` operator.
  - Redirection<br>
    The `>` operator.
  - Logical operator support<br>
