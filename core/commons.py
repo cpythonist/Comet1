@@ -201,6 +201,19 @@ def OPTSJOIN(opts: list[str] | tuple[str, ...] | set[str] | ty.KeysView[str]
     return ', '.join(f"'{i}'" for i in opts)
 
 
+def DEBUG(msg: str | Exception, sl: int = 3, raiser: str = "notComet") -> int:
+    """
+    Prints information to STDOUT. Was actually planned to be expanded.
+    > param text: Text to be printed
+    > return: None
+    """
+    if raiser == "notComet":
+        CNDEBUGLGR.debug(repr(str(msg))[1:-1], sl=sl)
+    elif raiser == "comet":
+        CNCOMETDEBUGLGR.debug(repr(str(msg))[1:-1], sl=sl)
+    return 0
+
+
 def INFO(msg: str | Exception, sl: int = 3, raiser: str = "notComet") -> int:
     """
     Prints information to STDOUT. Was actually planned to be expanded.
@@ -491,6 +504,9 @@ def DICTUPDATE(dict1: dict[ty.Any, ty.Any], dict2: dict[ty.Any, ty.Any]) \
     return dict1
 
 
+COMETHELP       = ("The Comet interpreter, version 1.0", '', "OPTIONS",
+                   "-d / --debug", "\tEnable debugging mode", "-h / --help",
+                   "\tDisplay this help message")
 PTHJN           = os.path.join
 GETEXC          = tb.format_exc
 USRDIR          = os.path.expanduser('~')
