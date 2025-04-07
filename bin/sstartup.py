@@ -39,9 +39,10 @@ def _SET_HELPER_STARTUP(origPth: str, args: dict[int, str]) -> int:
 
     for arg in args.values():
         print(origPth)
-        if os.path.isfile(comm.PTHJN(origPth, "startup", os.path.basename(arg))):
+        if os.path.isfile(comm.PTHJN(startupDir, os.path.basename(arg))):
             comm.ERR("Startup script file exists: "
-                     f"\"{comm.PTHJN(origPth, os.path.basename(arg))}\"")
+                     f"\"{comm.PTHJN(startupDir, os.path.basename(arg))}\"",
+                     sl=4)
             err = err or 8
             continue
 
@@ -55,7 +56,7 @@ def _SET_HELPER_STARTUP(origPth: str, args: dict[int, str]) -> int:
             err = err or 5
         except OSError:
             comm.ERR("Copy operation failed; invalid path, disc full or "
-                     "unescaped characters?")
+                     "unescaped characters?", sl=4)
             err = err or 6
 
     return err
