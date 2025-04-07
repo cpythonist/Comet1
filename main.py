@@ -1,6 +1,6 @@
 #
 # Comet 1 source code
-# Infinite Inc.
+# Copyright (c) 2025 Infinite Inc.
 # Written by Thiruvalluvan Kamaraj
 # Licenced under the Apache-2.0 Licence
 #
@@ -10,19 +10,42 @@
 
 import os
 import sys
-import datetime           as dt
-import getpass            as gp
-import platform           as pf
-import prompt_toolkit     as pt
-import typing             as ty
-from prompt_toolkit.completion import Completer, Completion
-from prompt_toolkit.key_binding import KeyBindings
+import datetime       as dt
+import getpass        as gp
+import platform       as pf
+import prompt_toolkit as pt
 
-# Add directory "src\\core" to list variable sys.path
+# Add src\\core to sys.path
 sys.path.insert(1, os.path.dirname(__file__) + os.sep + "core")
 import comet
 import commons  as comm
 sys.path.pop(1)
+
+
+def parseArgs() -> dict[str, bool | str]:
+    toReturn: dict[str, bool | str]
+    validArgs    = ("-d", "--debug", "-h", "--help")
+    toReturn     = {"debug": False}
+    errEncntered = False
+
+    for arg in sys.argv[1:]:
+        lowerArg = arg.lower()
+        if lowerArg not in validArgs:
+            comm.ERR(f"Invalid argument to Comet: \'{arg}\'", raiser="comet")
+            errEncntered = True
+            continue
+        if lowerArg == "-d" or lowerArg == "--debug":
+            toReturn["debug"] = True
+        elif lowerArg == "-h" or lowerArg == "--help":
+            print(comm.CONSHELPSTR(comm.COMETHELP))
+            sys.exit(0)
+
+    if errEncntered:
+        comm.ERR("Please use the -h or --help option for more information.",
+                 raiser="comet")
+        sys.exit(1)
+
+    return toReturn
 
 
 def promptUpdater(interpreter: comet.Interpreter, prompt: str) -> str:
@@ -105,71 +128,6 @@ def promptUpdater(interpreter: comet.Interpreter, prompt: str) -> str:
     return returnPrompt.replace(os.path.expanduser('~'), '~')
 
 
-class _Completer:
-    def __init__(self, interpreter: comet.Interpreter, prompt: str,
-                 pth: str) -> None:
-        self.interpreter    = interpreter
-        self.prompt         = prompt
-        self.pth            = pth
-
-    def getCommands(self) -> list[str]:
-        return [func for func in dir(self.interpreter) if func.isupper()]
-
-    def complete(self, txt: str, state: int) -> str | None:
-        self.opts = os.listdir('.')
-
-        if state == 0:
-            if not txt:
-                self.matches = self.opts[:]
-            else:
-                self.matches = [s for s in self.opts
-                                if s and s.startswith(txt)]
-
-        try:
-            return self.matches[state]
-        except IndexError:
-            return None
-
-    def ctrlLClrScr(self) -> None:
-        os.system("cls")
-        print("\033[0;0H")
-        print(promptUpdater(self.interpreter, self.prompt),
-              end='', flush=True)
-
-    def display_matches(self, substitution, matches, longest_match_length):
-        line_buffer = rl.get_line_buffer()
-        columns = os.get_terminal_size().columns
-
-        print()
-
-        tpl = "{:<" + str(int(max(map(len, matches)) * 1.2)) + "}"
-
-        buffer = ""
-        for match in matches:
-            match = tpl.format(match[len(substitution):])
-            if len(buffer + match) > columns:
-                print(buffer)
-                buffer = ""
-            buffer += match
-
-        if buffer:
-            print(buffer)
-
-        print("> ", end="")
-        print(line_buffer, end="")
-        sys.stdout.flush()
-
-
-class CometCompleter(Completer):
-    def __init__(self, interpreter: comet.Interpreter) -> None:
-        self.interpreter = interpreter
-
-    def get_completions(self, document, complete_event) \
-            -> ty.Generator[Completion, None, None]:
-        for item in os.scandir(self.interpreter.path):
-            yield Completion(item.name, start_position=0)
-
-
 def main() -> None:
     """
     All error codes:
@@ -190,11 +148,14 @@ def main() -> None:
         if not comm.ANSIOK():
             print("Terminal does not support ANSI; You may see some garbled "
                   "text during interpreter startup")
+        
+        mainArgs    = parseArgs()
         parser      = comet.Parser()
         interpreter = comet.Interpreter(
             parser,
             comm.DFLTSETT if (tmp := comm.RDSETT()) is None else tmp,
-            __file__.removesuffix(".py") + ".exe"
+            __file__.removesuffix(".py") + ".exe",
+            mainArgs["debug"]
         )
 
         prompt = interpreter.settings.get("prompt")
@@ -220,6 +181,7 @@ def main() -> None:
             interpreter.execute(inpLn)
 
         except KeyboardInterrupt:
+            # TODO: Assign separate error code to this, or whatever! Change it!
             interpreter.err               = 4
             interpreter.varTable["error"] = '4'
             print(f"{comm.ANSIBLUE}^C{comm.ANSIRESET}")
