@@ -270,37 +270,37 @@ class BuiltInComms:
 
         # I'm sorry.
         self.helpABIRAM    = ("Prints out a fact.", '', "USAGE: abiram [-h]",
-                              '', "OPTION(S)", "-h / --help", "\tHelp message")
+                              '', "OPTIONS", "-h / --help", "\tHelp message")
         self.helpABOUT     = ("Displays information about Comet.", '',
-                              "USAGE: about [-h]", '', "OPTION(S)",
+                              "USAGE: about [-h]", '', "OPTIONS",
                               "-h / --help", "\tHelp message")
         self.helpAMIT      = (
-            "Mocks Amit.", '', "USAGE: amit [-h] [msg ...]", '', "ARGUMENT(S)",
+            "Mocks Amit.", '', "USAGE: amit [-h] [msg ...]", '', "ARGUMENTS",
             "None", "\tPrints the default output", "msg",
-            "\tCustom message", '', "OPTION(S)", "-h / --help",
+            "\tCustom message", '', "OPTIONS", "-h / --help",
             "\tHelp message"
         )
         self.helpCD        = (
             "Changes the current working directory.", "USAGE: cd [-h] [path]",
-            '', "ARGUMENT(S):", "None", "\tPrints current working directory",
+            '', "ARGUMENTS", "None", "\tPrints current working directory",
             "path", "\tDirectory to change to", "\t* - User directory",
             "\t? - Previous working directory",
             "\tDRV:? - Change to previous working directory on drive DRV",
             "\t\\ or / - Root directory for current drive", '',
-            "OPTION(S)", "-h / --help", "\tHelp message"
+            "OPTIONS", "-h / --help", "\tHelp message"
         )
         self.helpCLEAR     = ("Clears the output screen.", '',
-                              "USAGE: clear [-h]", '', "OPTION(S)",
+                              "USAGE: clear [-h]", '', "OPTIONS",
                               "-h / --help", "\tHelp message")
         self.helpCOMET     = (
             "Displays information on the Comet interpreter.", '',
-            "USAGE: comet [-h]", '', "OPTION(S):", "-h / --help",
+            "USAGE: comet [-h]", '', "OPTIONS", "-h / --help",
             "\tHelp message", '',
             "If your terminal lets the application to handle these keys, "
                 "you can use them for the following.",
             "SPECIAL KEYS",
             "^a - Move the cursor to the beginning of the line",
-            "^b - Move the cursor back one character"
+            "^b - Move the cursor back one character",
             "^c - Interrupt the interpreter",
             "^d - Exit the interpreter",
             "^e - Move the cursor to the end of the line",
@@ -324,77 +324,77 @@ class BuiltInComms:
         )
         self.helpCOMMAND   = (
             "Run terminal commands.", '', "USAGE: command ln", '',
-            "ARGUMENT(S)", "ln", "\tLine to be executed in terminal",
+            "ARGUMENTS", "ln", "\tLine to be executed in terminal",
             '', "\tHelp message", '', "NOTE",
             "-h and --help options are unavailable for this command due to "
             "complications with parsing.", "Use 'help command' for its help text."
         )
         self.helpDATE      = ("Displays the current system date.", '',
                               "USAGE: date [-h]", '',
-                              "OPTION(S)", "-h / --help", "\tHelp message")
+                              "OPTIONS", "-h / --help", "\tHelp message")
         self.helpCREDITS   = ("Displays credits.", '', "USAGE: credits [-h]",
-                              '', "OPTION(S)", "-h / --help", "\tHelp message")
+                              '', "OPTIONS", "-h / --help", "\tHelp message")
         self.helpEXIT      = ("Exits the program.", '', "USAGE: exit [-h]", '',
-                              "OPTION(S)", "-h / --help", "\tHelp message")
+                              "OPTIONS", "-h / --help", "\tHelp message")
         self.helpGET       = (
             "Gets an interpreter variable's value.", '',
-            "USAGE: get [-h] [var]", '', "ARGUMENT(S)", "var",
-            "\tVariable to be accessed", '', "OPTION(S)", "-h / --help",
+            "USAGE: get [-h] [var]", '', "ARGUMENTS", "var",
+            "\tVariable to be accessed", '', "OPTIONS", "-h / --help",
             "\tHelp message"
         )
         self.helpHELP      = (
             "Displays the help menu.", '', "USAGE: help [-h] [command ...]",
-            '', "ARGUMENT(S)", "command", "\tCommand to display help text for",
-            '', "OPTION(S)", "-h / --help", "\tHelp message"
+            '', "ARGUMENTS", "command", "\tCommand to display help text for",
+            '', "OPTIONS", "-h / --help", "\tHelp message"
         )
         self.helpINTRO     = ("Displays the startup string.", '',
-                              "USAGE: intro [-h]", '', "OPTION(S)",
+                              "USAGE: intro [-h]", '', "OPTIONS",
                               "-h / --help", "\tHelp message")
         self.helpPWD       = ("Displays the current working directory.", '',
-                              "USAGE: pwd [-h]", '', "OPTION(S)",
+                              "USAGE: pwd [-h]", '', "OPTIONS",
                               "-h / --help", "\tHelp message")
         self.helpQUIT      = ("Exits the program.", '', "USAGE: quit [-h]", '',
-                              "OPTION(S)", "-h / --help", "\tHelp message")
+                              "OPTIONS", "-h / --help", "\tHelp message")
         self.helpRUNPATH   = ("Print the path from where the interpreter is "
                               "running.", '', "USAGE: runpath [-h]", '',
-                              "OPTION(S)", "-h / --help", "\tHelp message")
+                              "OPTIONS", "-h / --help", "\tHelp message")
         self.helpSET       = (
             "Sets interpreter variables.", '',
-            "USAGE: set [-h] (name value | -r name ...)", '', "ARGUMENT(S)",
+            "USAGE: set [-h] (name value | -r name ...)", '', "ARGUMENTS",
             "name", "\tName of the variable", "value",
-            "\tValue of the variable", '', "OPTION(S)", "-h / --help",
+            "\tValue of the variable", '', "OPTIONS", "-h / --help",
             "\tHelp message", "-s / --set", "\tSet an interpreter variable",
             "-r / --remove", "\tRemove an interpreter variable"
         )
         self.helpSTOP      = (
             "Pauses the program and waits for user to press any key.", '',
-            "USAGE: stop [-h]", '', "OPTION(S)", "-h / --help",
+            "USAGE: stop [-h]", '', "OPTIONS", "-h / --help",
             "\tHelp message"
         )
         self.helpTIME      = ("Displays the current system time.", '',
-                              "USAGE: time [-h]", '', "OPTION(S)",
+                              "USAGE: time [-h]", '', "OPTIONS",
                               "-h / --help", "\tHelp message")
         self.helpTIMEIT    = (
             "Time the execution of a command.", '', "USAGE: timeit ln", '',
-            "ARGUMENT(S)", "ln", "\tLine to be executed", '', "NOTE",
+            "ARGUMENTS", "ln", "\tLine to be executed", '', "NOTE",
             "-h and --help options are unavailable for this command due to "
                 "complications with parsing.",
             "Use 'help timeit' for its help text."
         )
         self.helpTITLE     = (
             "Changes the title of the console window.", '',
-            "USAGE: title [-h] [str]", '', "ARGUMENT(S)", "None",
+            "USAGE: title [-h] [str]", '', "ARGUMENTS", "None",
             "\tRevert to original title", "str",
-            "\tNew title of the console window", '', "OPTION(S)",
+            "\tNew title of the console window", '', "OPTIONS",
             "-h / --help", "\tHelp message"
         )
         self.helpVER       = ("Displays the version of Comet interpreter.", '',
-                              "USAGE: ver [-h]", '', "OPTION(S)", "-h / --help",
+                              "USAGE: ver [-h]", '', "OPTIONS", "-h / --help",
                               "\tHelp message")
         self.helpWHEREIS   = (
             "Display the locations of commands.", '',
-            "USAGE: whereis [-h] command ...", '', "ARGUMENT(S)", "command",
-            "\tName of the command", '', "OPTION(S)", "-h / --help",
+            "USAGE: whereis [-h] command ...", '', "ARGUMENTS", "command",
+            "\tName of the command", '', "OPTIONS", "-h / --help",
             "\tDisplay help message"
         )
 
@@ -1306,13 +1306,14 @@ class BuiltInComms:
 
 class Interpreter:
     def __init__(self, parser: Parser, settings: dict[str, str],
-                 title: str) -> None:
+                 title: str, debug) -> None:
         self.varTable: dict[str, str]
         self.introTxt     = ("Comet 1.0\nLicence: Apache-2.0")
         self.version      = "1.0"
         self.err          = 0
         self.parser       = parser
         self.settings     = settings
+        self.debug        = debug
         self.origPth      = comm.ORIGPTH
         self.path         = self.settings.get("path")
         self.title        = self.settings.get("title")
@@ -1529,6 +1530,7 @@ class Interpreter:
         pipeOut  = None
         redirOut = None
         parsed   = self.parse(line)
+        comm.DEBUG(f"Parsed input line: {parsed}") if self.debug else None
         if parsed == 1:
             return 2
 
@@ -1540,6 +1542,11 @@ class Interpreter:
 
             if parsed:
                 operation = parsed.pop(0)
+
+            # Debug enabled
+            if self.debug:
+                comm.DEBUG("Initial command, arguments, options and operation: "
+                           f"'{command}', {args}, {opts} '{operation}'")
 
             if len(command) == 1 and ord(command) in (26, 4):
                 # Ughhh. Will be caught in the main module
@@ -1560,6 +1567,10 @@ class Interpreter:
                 command = tmp[0]
                 args.update(tmp[1])
                 opts.update(tmp[2])
+                if self.debug:
+                    comm.DEBUG("Updated command, arguments, options and "
+                               f"operation: '{command}', {args}, {opts} "
+                               f"'{operation}'")
 
             if not command:
                 return self.err
@@ -1577,6 +1588,9 @@ class Interpreter:
                            or self.execscripts.lower() == "true")
 
             if redirOut is not None:
+                if self.debug:
+                    comm.DEBUG("Redirection block executing")
+
                 try:
                     with open(command, 'a') as f:
                         f.write(redirOut)
@@ -1586,13 +1600,16 @@ class Interpreter:
                     self.err = 5
                 except OSError:
                     comm.ERR("Redirect operation failed; invalid path, disc "
-                            "full or unescaped characters?", raiser="comet")
+                             "full or unescaped characters?", raiser="comet")
                     self.err = 6
                     return 6
                 finally:
                     redirOut = None
 
             elif isinstance(func, ty.Callable):
+                if self.debug:
+                    comm.DEBUG("Command block executing")
+
                 # Output of previous command piped to current command; add
                 # the previous ouput to the arguments of current command
                 if pipeOut is not None:
@@ -1622,12 +1639,15 @@ class Interpreter:
                     print(output, end='')
                     if operation == '&' and self.err:
                         return self.err
-                    elif operation == '|':
-                        pipeOut = output
+                elif operation == '|':
+                    pipeOut = output
                 elif operation == '>':
                     redirOut = output
 
             elif isinstance(func, str):
+                if self.debug:
+                    comm.DEBUG("Dunno wth this block is...")
+
                 tempOptDict: dict[int, str] = {}
                 for key in opts:
                     tempOptDict[key] = '-' + opts[key]
@@ -1640,6 +1660,9 @@ class Interpreter:
                 return err
 
             elif execscripts and os.path.isfile(command):
+                if self.debug:
+                    comm.DEBUG("Script exection block executing")
+
                 err = 0
                 try:
                     with open(command) as f:
@@ -1660,6 +1683,8 @@ class Interpreter:
                     self.err = 5
 
             elif (cdtodirs1 and cdtodirs2 and os.path.isdir(command)):
+                if self.debug:
+                    comm.DEBUG("Change directory block executing")
                 if args or opts:
                     argsAndOpts = args and opts
                     self.err    = 53
@@ -1673,6 +1698,8 @@ class Interpreter:
                                      operation)
 
             else:
+                if self.debug:
+                    comm.DEBUG("Error block executing")
                 self.err = func
                 if func == 50:
                     comm.ERR(f"Bad command: \"{command}\"", raiser="comet")
