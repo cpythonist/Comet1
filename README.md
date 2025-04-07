@@ -23,7 +23,7 @@ Run as:
 ```
 
 ## Building
-For now, building is not possible. Modules compiled with Nuitka does not seem to have a module export function (PyInit_func), which results in being unable to access external commands (built-in commands work just fine).<br>
+For now, building is not possible. Modules compiled with Nuitka does not seem to have a module export function (PyInit_func), which results in being unable to access external commands (built-in commands work just fine). Tried with Cython too, but with same result.<br>
 <br>
 I don't know how to fix this, so if you have any suggestions, please do contact me.
 
