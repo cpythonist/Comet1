@@ -1,0 +1,87 @@
+/////////////
+//   OLD   //
+/////////////
+
+1. -- DONE --
+   Escaping characters does not work when piping commands.
+   See http://cpythonist.github.io/clash/clash1/issues.html for more
+   information.
+2. -- DONE --
+   While writing using the config command, e.g. "config -s path C:\", "C:\"
+   is written to the config file. Escape the string then write it to the file.
+3. -- DONE --
+   `help` without arguments displays the text of copyright command
+   offset to the right by 1 space.
+
+/////////////
+// OLD-END //
+/////////////
+
+
+1. -- DONE --
+   `file \ | exec` gives unexpected output.
+   Supposed to pass the output of the file command (for directory C:\) to the
+   exec command.
+   `file C:\ | exec` too.
+   Think it's due to the character escape functionality that was just added.
+   Chk it.
+
+2. -- DONE --
+   `title "'.', f\"{''.join(args.file.split('.')[:-1])}.exe\""`
+   leads to an extra double-quote at the end of the title. Most probably arose
+   from the escape functionality that was just added.
+   `title "'.', f\"{''.join(args.file.split('.')[:-1])}.exe\"` gives the
+   expected output for the previous command.
+
+3. -- DONE --
+   Change behaviour of ^ and ; such that the next command in line is executed
+   even if an error like bad command or is a file error occurs.
+   E.g. `./sdfsdggf ^ dir` should display the output of `dir` on STDOUT.
+
+4. -- DONE --
+   cd to ~/AppData/Local/Steam/htmlcache/, then there will be an empty file in
+   the directory called "000003.log". Run the disp command on the file to
+   display it, but instead encounters a fatal error (due to StopIteration).
+
+5. -- CHANGE IN FINAL BUILD --
+   Make sure to compress all the help strings before final release.
+
+6. -- DONE --
+   WEIRD BEHAVIOUR
+   `find \/ /\n\n\n\nthiru/\valluvan` - Not supposed to print a newline, since
+   there are no matches
+   `find \ /\n\n\n\nthiru/\valluvan` - Doesn't match the backslash
+   `find \\ /\n\n\n\nthiru/\valluvan` - Doesn't match the backslash
+   `find \\ /\n\n\n\nthiru/\\valluvan` - Doesn't match the backslash
+   `find \ thiru/\\valluvan` - Doesn't match the backslash
+
+7. -- DONE --
+   INTERPRETER CRASHES ON EXECUTION OF `find \ thiru/\\valluvan`
+   Tried to fix by a repr(...) call for the pattern. But that makes other
+   patterns to be not recognised by the re module.
+
+8. ANSI codes get in the output when an operator is next in line when running
+   aliases. Problem is the interpreter not keeping track of the operator parsed
+   when parsing the alias. Tried to pass the operator to Intrp.execute(...),
+   didn't work. Might actually work with a bit of effort. But I'm not in a
+   position to fix it right now. I'm tired.
+
+9. -- CHANGE IN FINAL BUILD --
+   Thing is, you idiot, since you used commons.LOWERLT() for option checking
+   and evaluation, the options are displayed in lower case when reporting
+   unknown options. You goddamn fool. The great programmer who did that (me) is
+   not going to touch that. Not right now. I don't plan on torturing myself, as
+   that things has been like re-written like three to four times already over
+   the course of six months, as of 01.05.2025.
+
+10. ls command - outputs a newline when running `ls` on the current directory
+    if the directory is empty.
+
+11. When running the prog on wt.exe, commons.ANSIOK() returns False, even
+    though the terminal does support ANSI codes.
+
+12. -- DONE --
+    Check `echo.\new > del -r`. It's not supposed to execute the del command, 
+    as the first command fails.
+
+13. Make sure to edit and refactor the help command and helper functions!

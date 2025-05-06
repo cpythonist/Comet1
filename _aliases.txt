@@ -1,0 +1,8 @@
+ll=ls -l
+cat=disp
+copy=cp
+move=mv
+del=rm
+version=ver
+type=fl
+cls=clear

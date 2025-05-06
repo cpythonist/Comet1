@@ -1,0 +1,8 @@
+1. HELP STRING IDENTIFIER
+   Help string identifier should be named "help{uppercase-name}" for built-in
+   commands in the class builtInCmds.HelpTxts, and as "helpStr" for external
+   commands at global scope.
+
+2. HELP STRING COMPRESSION
+   Help strings should be compressed with zlib.compress(...). Only then can 
+   the help strings can be read by commons.DECOMPSTR(...).

@@ -1,0 +1,65 @@
+All commands return the first encountered error code.
+
+Error codes common to all commands: -1 ... 49
+Interpreter error codes: 50 ... 99
+Custom error codes: 100 ... inf
+
+> -1 = Unknown error
+> 0 = Success
+> 1 = Incorrect format (invalid command usage, i.e. arguments
+      missing, too many arguments, etc.)
+> 2 = Unknown option(s)
+> 3 = Invalid option combination / option order
+      discrepancy / incorrect option usage
+> 4 = No such file or directory
+> 5 = Permission errors encountered
+> 6 = OS errors encountered
+> 7 = Race conditions or other unexpected, but known errors
+> 8 = File/directory exists
+> 9 = Cannot decode file
+> 10 = No such file
+> 11 = No such directory
+
+> 50 = Bad command
+> 51 = Command too long
+> 52 = Multiple commands with same name detected
+> 53 = Invalid use of interpreter features
+> 54 = Invalid syntax
+> 55 = Is a directory
+> 56 = Is a file
+> 57 = KeyboardInterrupt
+> 58 = No such interpreter variable
+> 59 = Unclosed quoted command
+> 60 = Unclosed subcommand
+> 61 = Unclosed quoted argument
+> 62 = Subcommand execution failed
+> 63 = Unclosed variable name
+> 64 = startup path does not exist
+> 65 = Path supplied does not exist
+> 66 = Invalid settings parameter value
+> 67 = Invalid alias file names/lines
+
+> 100: alias: No alias to remove specified
+> 101: alias: Invalid character encountered in alias file
+> 102: greet: Invalid time. Should never happen. But, just in case, as I am incompetent.
+> 103: list: TASKLIST error
+> 104: sleep: Invalid time value (expected float)
+> 105: set: Attempted modification of protected variable
+> 106: set/get: No such variable
+> 107: help: No help string available
+> 109: kill: No such process
+> 110: startup: No such startup script
+> 111: tree: Invalid flush threshold
+> 112: alias: Invalid alias name (contains illegal characters)
+> 113: help/whereis: No such (valid) command
+> 114: shutdown: Invalid time value (expected int)
+> 115: help: Cannot sort commands
+> 116: oops: Last command did not fail
+> 117: oops: Oops command re-run
+> 120: alias: No alias file found
+> 121: alias: No such alias
+> 122: config: No such parameter
+> 130: zip: Bad zip file
+> 131: config: Invalid parameter name
+> 133: sleep: Time value too large
+> 134: head/tail: Invalid peek size

@@ -1,0 +1,7 @@
+prompt=%7[%E]%9 (%4%U%9@%C) %1%5%P%9 $ 
+path=
+cdtodirs=false
+execscripts=false
+title=
+intro=false
+cache=true
